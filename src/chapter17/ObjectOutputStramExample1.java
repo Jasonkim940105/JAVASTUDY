@@ -1,8 +1,6 @@
 package chapter17;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.GregorianCalendar;
 
 public class ObjectOutputStramExample1 {
@@ -23,6 +21,39 @@ public class ObjectOutputStramExample1 {
             } catch (Exception e){
                 e.printStackTrace();
             }
+        }
+    }
+}
+
+class DistrChart implements java.io.Serializable{
+    int arr[][];
+    DistrChart(){
+        arr = new int[10][10];
+    }
+
+    private void writeObject(ObjectOutputStream out) throws IOException{
+        for(int row = 0 ; row < arr.length; row++){
+            for(int col = 0; col< arr[row].length; col++){
+                if(arr[row][col] !=0 ){
+                    out.writeInt(row);
+                    out.writeInt(col);
+                    out.writeInt(arr[row][col]);
+                }
+            }
+        }
+    }
+
+    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException{
+        arr = new int[10][10];
+        try {
+            while(true){
+                int row = in.readInt();
+                int col = in.readInt();
+                int data = in.readInt();
+                arr[row][col] = data;
+            }
+        } catch (EOFException e){
+
         }
     }
 }
