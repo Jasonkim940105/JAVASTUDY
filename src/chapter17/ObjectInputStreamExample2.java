@@ -10,7 +10,7 @@ public class ObjectInputStreamExample2 {
             in = new ObjectInputStream(new FileInputStream("output2.dat"));
             while(true){
                 GoodStock obj = (GoodStock)in.readObject();
-                System.out.println("상품코드 : "  +obj.code + "\t상품수량: " + obj.num); // \t 는 이스캐이프로 두번 space
+                System.out.println("상품코드 : "  +obj.code + "\t상품수량: " + obj.num); // \t 는 이스캐이프로 tab.
             }
 
         }  catch (FileNotFoundException e) {

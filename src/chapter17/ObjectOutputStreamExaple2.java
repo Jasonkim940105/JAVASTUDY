@@ -3,6 +3,32 @@ package chapter17;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+class BBSItem implements java.io.Serializable{
+    static int itemNum = 0;
+    String writer;
+    transient String password;
+    String title;
+    String content;
+    Object attachment;
+
+    public BBSItem(String writer, String password, String title, String content) {
+        this.writer = writer;
+        this.password = password;
+        this.title = title;
+        this.content = content;
+        itemNum ++;
+    }
+    void modiftyContent(String content, String password){
+        if( !password.equals(this.password))
+            return;
+        this.content = content;
+    }
+
+    void addAttachment(Object attachment){
+        this.attachment = attachment;
+    }
+}
+
 
 class GoodStock implements java.io.Serializable{
     String code;
