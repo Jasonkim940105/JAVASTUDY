@@ -59,3 +59,16 @@ class BookInfo extends GoodsInfo implements java.io.Serializable{
     }
 
 }
+
+class Rectangle implements java.io.Serializable{
+    static final long serialVersionUID = 100;
+    int width, height;
+
+    public Rectangle(int width, int height) {
+        this.width = width;
+        this.height = height;
+    }
+    int getArea(){
+        return  width * height;
+    }
+}
