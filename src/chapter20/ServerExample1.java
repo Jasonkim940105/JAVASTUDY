@@ -14,7 +14,7 @@ public class ServerExample1 {
         Socket socket = null;
 
         try {
-            serverSocket = new ServerSocket(9000);
+            serverSocket = new ServerSocket(8080);
             socket = serverSocket.accept();
             InputStream in = socket.getInputStream();
             OutputStream out = socket.getOutputStream();
