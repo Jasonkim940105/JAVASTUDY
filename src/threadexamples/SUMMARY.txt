@@ -1,0 +1,19 @@
+Thread 는 각각의 작업공간 (Context)를 가진다.
+Thread 가 switch 되면 context 도 같이 switch 된다.
+
+thread 들이 공유하는 resource 가 있을 수 있다.
+이러한 자원의 영역을 critical section 이라한다.
+
+여러 thread 들이 critical section 의 자원을 동시에 사용하면 문제가 발생할 수 있기 때문에 synchronization 이 필요한다.
+(서로 공유자원을 가지려 하는 상태를 race condition 이라함)
+
+1. Thread 가 start 되면 thread 는 runnable 한 상태가 된다 ( CPU를 점유할 수 있는 상태)
+2. Runnable 한 Thread 중 스케쥴러가 cpu를 점유하게 해준다.
+Thread 가 cpu 를 점유할 수 없는 non-runnable 한 상태로 가는 메소드
+(1) sleep(시간) -> (시간)지나면 runnable
+(2) wait() -> notify()
+(3) join -> other thread exits
+
+* thread 가 sleep, wait, join 에 의해 non-runnable 한 status 가 되는 걸 blocking 이라함. sleep , wait, join 상태에서 interrupt()를 통해 exception 을 발생시키면 해당 thread 를 wake 시킬 수 있음
+* 무한 반복 thread 의 경우 Thread.stop() 으로 종료하지않음!!  , while(flag) flag 를 false 를 만들어 종료시키는 형태.
+
