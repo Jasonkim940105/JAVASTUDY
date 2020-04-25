@@ -17,3 +17,8 @@ Thread 가 cpu 를 점유할 수 없는 non-runnable 한 상태로 가는 메소
 * thread 가 sleep, wait, join 에 의해 non-runnable 한 status 가 되는 걸 blocking 이라함. sleep , wait, join 상태에서 interrupt()를 통해 exception 을 발생시키면 해당 thread 를 wake 시킬 수 있음
 * 무한 반복 thread 의 경우 Thread.stop() 으로 종료하지않음!!  , while(flag) flag 를 false 를 만들어 종료시키는 형태.
 
+Synchronization ?
+Thread 가 Critical Section 의 shared resources 를 사용할때 필요한 경우 해당 resource 에 대한 lock 을 걸어 다른 thread 의 접근을 막음.
+잘 못 구현할 시 deadlock 상태에 빠질 수 있다.
+
+* semaphore -> 쓰레드가 공유자원에 접근하기 위한 key 를 이르는 말?
